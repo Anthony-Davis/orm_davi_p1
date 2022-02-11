@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a628ce9-275b-4fad-a73c-6aed0314951e" name="Changes" comment="updating to current build">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/mainTesting/testing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/Driver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/testing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +42,11 @@
   </component>
   <component name="RunManager">
     <configuration name="testing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.revature.mainTesting.testing" />
+      <option name="MAIN_CLASS_NAME" value="testing" />
       <module name="orm_p1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.revature.mainTesting.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -78,6 +69,14 @@
       <option name="presentableId" value="Default" />
       <updated>1644514438880</updated>
     </task>
+    <task id="LOCAL-00001" summary="updating to current build">
+      <created>1644594872959</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1644594872959</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
