@@ -4,11 +4,9 @@ import com.revature.annotations.Column;
 import com.revature.annotations.ForeignKey;
 import com.revature.annotations.Table;
 import com.revature.exceptions.MissingAnnotationException;
-import com.revature.repositories.Repository;
 import com.revature.util.ReflectInfo;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 

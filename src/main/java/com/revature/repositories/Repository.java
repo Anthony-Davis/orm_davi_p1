@@ -2,9 +2,8 @@ package com.revature.repositories;
 
 import com.revature.annotations.Column;
 import com.revature.exceptions.MissingAnnotationException;
-import com.revature.exceptions.ResourceNotFoundException;
 import com.revature.services.StatementCreator;
-import com.revature.util.ConnectionFactory;
+import com.revature.util.DbConnector;
 import com.revature.util.ReflectInfo;
 
 import java.lang.reflect.Field;
@@ -14,7 +13,7 @@ import java.util.*;
 
 public class Repository<T> {
 
-	Connection conn = ConnectionFactory.getConnection();
+	Connection conn = DbConnector.getConnection();
 
 	public Repository(){}
 	

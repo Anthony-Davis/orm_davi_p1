@@ -6,12 +6,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class ConnectionFactory {
+public class DbConnector {
 	
 	private static Properties properties = new Properties();
 	private static Connection connection = null;
 	
-	private ConnectionFactory(){}
+	private DbConnector(){}
 	
 	public static Connection getConnection(){
 		try {
