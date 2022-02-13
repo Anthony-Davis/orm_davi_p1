@@ -13,9 +13,11 @@ import java.util.*;
 
 public class Repository<T> {
 
-	Connection conn = DbConnector.getConnection();
+	Connection conn;// = DbConnector.getConnection();
 
-	public Repository(){}
+	public Repository(){
+		conn = DbConnector.getConnection();
+	}
 	
 	// INITIALIZE TABLE
 	public void initializeTable(T o) throws SQLException, MissingAnnotationException {

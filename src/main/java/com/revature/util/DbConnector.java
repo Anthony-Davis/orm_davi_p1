@@ -9,7 +9,7 @@ import java.util.Properties;
 public class DbConnector {
 	
 	private static Properties properties = new Properties();
-	private static Connection connection = null;
+	private static Connection connection;
 	
 	private DbConnector(){}
 	

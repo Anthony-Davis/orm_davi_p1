@@ -1,2 +1,14 @@
+com\revature\annotations\ForeignKey.class
+com\revature\annotations\Table.class
 com\revature\OrmDriver.class
+com\revature\repositories\Repository.class
+com\revature\util\TestModel.class
+com\revature\exceptions\MissingAnnotationException.class
+com\revature\util\ReflectInfo.class
+com\revature\exceptions\ResourceNotFoundException.class
+com\revature\annotations\PrimaryKey.class
+com\revature\util\SqlDataType.class
+com\revature\services\RepoService.class
 com\revature\util\DbConnector.class
+com\revature\annotations\Column.class
+com\revature\services\StatementCreator.class
