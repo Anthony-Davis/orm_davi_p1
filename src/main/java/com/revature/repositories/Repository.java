@@ -13,7 +13,7 @@ import java.util.*;
 
 public class Repository<T> {
 
-	Connection conn;// = DbConnector.getConnection();
+	Connection conn;
 
 	public Repository(){
 		conn = DbConnector.getConnection();
