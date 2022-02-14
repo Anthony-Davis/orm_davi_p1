@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4a628ce9-275b-4fad-a73c-6aed0314951e" name="Changes" comment="updating to current build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/repositories/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/repositories/Repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/services/StatementCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/services/StatementCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/services/StatementCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/services/StatementCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/util/DbConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/util/DbConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/testing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/testing.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644780381159</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updating to current build">
+      <created>1644805078968</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1644805078968</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

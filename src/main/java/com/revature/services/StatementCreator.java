@@ -70,7 +70,7 @@ public class StatementCreator<T> {
 		
 		createTableSql = createTableSql.substring(0, createTableSql.length()-2);
 		createTableSql += ");";
-		System.out.println(createTableSql);
+		
 		return  createTableSql;
 	}
 	

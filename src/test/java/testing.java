@@ -132,7 +132,6 @@ public class testing {
 		up.setOtherNum(55);
 		
 		repo.update(up.getId(), up);
-		System.out.println( repo.getItem(1, tm) );
 		assertEquals( "Anthony" , ReflectInfo.getFieldValues(repo.getItem(1, tm))[1].toString() );
 	}
 	
