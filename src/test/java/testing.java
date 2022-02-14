@@ -1,81 +1,140 @@
 import com.revature.exceptions.MissingAnnotationException;
-import com.revature.exceptions.ResourceNotFoundException;
 import com.revature.repositories.Repository;
+import com.revature.services.StatementCreator;
+import com.revature.util.ReflectInfo;
 import com.revature.util.TestModel;
 
 import java.sql.SQLException;
 
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+
 public class testing {
 	
-	public static void main(String[] args) throws ResourceNotFoundException {
-		
-		// Entity no longer inherits Repository
-		Repository<Object> repo = new Repository<>();
-		
+	Repository<Object> repo = new Repository<>();
+	TestModel tm = new TestModel();
+	StatementCreator<TestModel> sc = new StatementCreator<>();
+	
+	
+	@Test
+	public void testInitialTable() throws MissingAnnotationException {
 		TestModel tm = new TestModel();
+		assertEquals( "create table if not exists test_model ( id serial primary key,  name VARCHAR(20), some_num DOUBLE precision, other_num INTEGER);" ,sc.buildInitialTable(tm));
+	}
+	
+	@Test
+	public void testCreateSC() {
+		TestModel tm = new TestModel();
+		assertEquals("insert into test_model (id,name,some_num,other_num) values (default,?,?,?) returning *;", sc.create(tm));
+	}
+	
+	@Test
+	public void testRepoAdd() throws SQLException, MissingAnnotationException {
+		TestModel tm = new TestModel();
+		repo.initializeTable(tm);
+		
 		tm.setId(1);
 		tm.setName("name1");
 		tm.setSomeNum(1.1);
 		tm.setOtherNum(11);
+		assertNotNull(repo.addItem(tm));
+	}
+	
+	@Test
+	public void testDeleteSC() {
+		assertEquals( "delete from test_model where id = ?;", sc.delete(tm) );
+	}
+	
+	@Test
+	public void testRepoDelete() throws SQLException, MissingAnnotationException {
+		repo.initializeTable(tm);
 		
-		try {
-			repo.initializeTable(tm);
-		} catch (SQLException | MissingAnnotationException e) {
-			e.printStackTrace();
-		}
-		
+		tm.setId(1);
+		tm.setName("name1");
+		tm.setSomeNum(1.1);
+		tm.setOtherNum(11);
 		repo.addItem(tm);
 		
-		TestModel t2 = new TestModel();
-		t2.setId(2);
-		t2.setName("name2");
-		t2.setSomeNum(2.2);
-		t2.setOtherNum(22);
-		repo.addItem(t2);
+		repo.deleteItem(1, tm);
+		assertNull(repo.getItem(1, tm));
+	}
+	
+	@Test
+	public void testReadSC() {
+		assertEquals("select * from test_model where id = ?;", sc.read(tm));
+	}
+	
+	@Test
+	public void testRepoGet() throws SQLException, MissingAnnotationException {
+		repo.initializeTable(tm);
 		
-		//System.out.println("get 2:\t"+ repo.getItem(2, tm) +"\n");
-		try {
-			//System.out.println("getAll:\t"+ repo.getAll( tm, ConnectionFactory.getConnection() ));
-			//System.out.println( repo.getAll(t2) );
-			System.out.println( repo.getAll(tm) );
-			
-		} catch (InstantiationException | IllegalAccessException | NullPointerException e) {
-			e.printStackTrace();
-		} finally {
-			//repo.deleteItem(1, tm);
-			//repo.deleteItem(2, tm);
-		}
+		tm.setId(1);
+		tm.setName("name1");
+		tm.setSomeNum(1.1);
+		tm.setOtherNum(11);
+		repo.addItem(tm);
+		
+		tm.setId(2);
+		tm.setName("name2");
+		tm.setSomeNum(2.2);
+		tm.setOtherNum(22);
+		repo.addItem(tm);
+		assertNotNull(repo.getItem(2, tm));
+	}
+	
+	@Test
+	public void testReadAllSC() {
+		assertEquals("select * from test_model;", sc.readAll(tm));
+	}
+	
+	@Test
+	public void testRepoGetAll() throws InstantiationException, IllegalAccessException, SQLException, MissingAnnotationException {
+		repo.initializeTable(tm);
+		tm.setId(1);
+		tm.setName("name1");
+		tm.setSomeNum(1.1);
+		tm.setOtherNum(11);
+		repo.addItem(tm);
+		
+		tm.setId(2);
+		tm.setName("name2");
+		tm.setSomeNum(2.2);
+		tm.setOtherNum(22);
+		repo.addItem(tm);
+		assertNotNull(repo.getAll(tm));
+	}
+	
+	@Test
+	public void testUpdateSC() throws IllegalAccessException {
+		TestModel up = new TestModel();
+		up.setId(1);
+		up.setName("Anthony");
+		up.setSomeNum(5.55);
+		up.setOtherNum(55);
+		assertEquals("update test_model set name= 'Anthony',some_num= 5.55,other_num= 55 where id= 1;", sc.update(1, up));
+	}
+	
+	@Test
+	public void testRepoUpdate() throws IllegalAccessException, SQLException, MissingAnnotationException {
+		
+		repo.initializeTable(tm);
+		tm.setId(1);
+		tm.setName("name1");
+		tm.setSomeNum(1.1);
+		tm.setOtherNum(11);
+		repo.addItem(tm);
 		
 		TestModel up = new TestModel();
 		up.setId(1);
 		up.setName("Anthony");
 		up.setSomeNum(5.55);
 		up.setOtherNum(55);
-		try {
-			repo.update(up.getId(), up);
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		//repo.update(tm, 1, "name", "anthony");
-		//repo.update(tm, 1, "other_num", 55) ;
-		// tests for Repository class. works for adding things to postgres
-		//Repository<Entity> repo = new Repository();
-		//repo.addItem(tm);
-		//repo.deleteItem(1);
-		//System.out.println("getItem:\t" + repo.getItem(1) );
-		//System.out.println();
 		
-		// tests for StatementCreator class
-		//StatementCreator<Object> sc = new StatementCreator<>();
-		//System.out.println(sc.update(t2, 1, "name", "anthony"));
-		//System.out.println("\nStatement Creator:");
-		// Tests for initialize table method
-		//try { sc.buildInitialTable(tm); }
-		//catch (MissingAnnotationException e) { e.printStackTrace(); }
-		
-		//System.out.println( sc.create(tm) );
-		//System.out.println( sc.delete(tm) );
-		//System.out.println("\ncurrently Table name:" + sc.translate() );	//successful print of table name
-		
+		repo.update(up.getId(), up);
+		System.out.println( repo.getItem(1, tm) );
+		assertEquals( "Anthony" , ReflectInfo.getFieldValues(repo.getItem(1, tm))[1].toString() );
 	}
+	
+	
 }

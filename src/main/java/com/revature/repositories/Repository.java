@@ -53,7 +53,7 @@ public class Repository<T> {
 		return null;
 	}
 
-	public Object getItem(int id,T o) {
+	public Object getItem(int id, T o) {
 		StatementCreator<Object> sc = new StatementCreator<>();
 		String sql = sc.read(o);
 
